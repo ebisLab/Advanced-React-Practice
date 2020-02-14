@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Player from './Components/Players'
+import Player from './Components/Players';
+import {Navigation} from './Components/Navigation'
 
 import './App.css';
 
@@ -27,6 +28,7 @@ players: []
   render(){
     return (
       <div className="App">
+        <Navigation />
         <h1>Happy building <span role="img" aria-label="Smiling emoji">😃</span></h1>
         {this.state.players.map(item => <Player key={item.id} item={item} />)}
       </div>
