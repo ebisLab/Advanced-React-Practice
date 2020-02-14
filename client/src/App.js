@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Player from './Components/Players'
 
 import './App.css';
 
@@ -16,10 +17,10 @@ players: []
     axios
     .get(`http://localhost:5000/api/footballers`)
     .then(res=>{
-      console.log(res)
-      console.table(res.data)
+      // console.log(res)
+      // console.table(res.data)
       this.setState({players: res.data}) //wrap curly backetsr around players since its object 
-console.log(Array.isArray(this.state.players));
+// console.log(Array.isArray(this.state.players));
     })
   }
 
@@ -27,6 +28,7 @@ console.log(Array.isArray(this.state.players));
     return (
       <div className="App">
         <h1>Happy building <span role="img" aria-label="Smiling emoji">😃</span></h1>
+        {this.state.players.map(item => <Player key={item.id} item={item} />)}
       </div>
     );
   }
